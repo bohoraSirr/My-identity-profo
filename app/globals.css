@@ -1,0 +1,276 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------------------- */
+/*  Tokens                                                                    */
+/*  Semantic names only: canvas, surface, ink, muted, line, accent.           */
+/*  Components never reference a raw palette value.                           */
+/* -------------------------------------------------------------------------- */
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+
+  --font-sans: var(--font-sans-stack);
+  --font-display: var(--font-display-stack);
+  --font-mono: var(--font-mono-stack);
+
+  /* Overlays are the only things that float, so they are the only things
+     that get a shadow. Everything else is separated by a hairline. */
+  --shadow-overlay: 0 1px 2px rgb(0 0 0 / 0.08), 0 14px 30px -12px rgb(0 0 0 / 0.3);
+}
+
+/* ------------------------------ daylight --------------------------------- */
+/* Crisp cool paper, deep petrol. Not cream, not terracotta.                  */
+
+:root,
+[data-theme="light"] {
+  --canvas: #f1f2f4;
+  --surface: #ffffff;
+  --surface-2: #f7f8fa;
+  --ink: #0e1116;
+  --muted: #5b6472;
+  --line: #e2e5ea;
+  --accent: #0b5c63;
+  --accent-fg: #ffffff;
+  color-scheme: light;
+}
+
+/* ------------------------------ deepwater -------------------------------- */
+/* Cool graphite, aqua accent.                                                */
+
+[data-theme="dark"] {
+  --canvas: #0b0e12;
+  --surface: #12161c;
+  --surface-2: #191e26;
+  --ink: #e9ecf1;
+  --muted: #8b95a5;
+  --line: #242b35;
+  --accent: #4fd1c5;
+  --accent-fg: #062622;
+  color-scheme: dark;
+}
+
+/* ------------------------------- phosphor -------------------------------- */
+/* Terminal. Everything renders in the mono stack (see below).                */
+
+[data-theme="coder"] {
+  --canvas: #0a0c0a;
+  --surface: #111411;
+  --surface-2: #181c18;
+  --ink: #d6e6d6;
+  --muted: #7e9a82;
+  --line: #1f2a20;
+  --accent: #4be38a;
+  --accent-fg: #04140a;
+  color-scheme: dark;
+}
+
+/* -------------------------------- ember ---------------------------------- */
+/* Warm charcoal, amber.                                                      */
+
+[data-theme="ember"] {
+  --canvas: #131110;
+  --surface: #1b1815;
+  --surface-2: #241f1b;
+  --ink: #efe7de;
+  --muted: #a2968a;
+  --line: #2e2721;
+  --accent: #f0a030;
+  --accent-fg: #1a1103;
+  color-scheme: dark;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Font stacks                                                               */
+/* -------------------------------------------------------------------------- */
+
+:root {
+  --font-sans-stack: var(--font-instrument), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-display-stack: var(--font-fraunces), ui-serif, Georgia, "Times New Roman",
+    serif;
+  --font-mono-stack: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+}
+
+/* Terminal mode reads as a terminal: one typeface, monospaced. */
+[data-theme="coder"] {
+  --font-sans-stack: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+  --font-display-stack: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Base                                                                      */
+/* -------------------------------------------------------------------------- */
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Clears the fixed header on anchor jumps. */
+    scroll-padding-top: 5.5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sans-stack);
+    font-synthesis-weight: none;
+    overflow-x: clip;
+  }
+
+  /* The display face is optical-size aware; let it pick its own cut. */
+  .font-display {
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 0, "WONK" 0;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--accent) 24%, transparent);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--canvas);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--muted) 40%, transparent);
+    border-radius: 999px;
+    border: 3px solid var(--canvas);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in oklab, var(--accent) 75%, transparent);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Utilities                                                                 */
+/* -------------------------------------------------------------------------- */
+
+@utility container-page {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
+
+/* Prose measure cap. Keeps line length under ~70 characters. */
+@utility measure {
+  max-width: 62ch;
+}
+
+@utility measure-tight {
+  max-width: 46ch;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Reveals                                                                   */
+/*  Both of these are pure CSS on purpose. Framer Motion writes its `initial`  */
+/*  state into the server-rendered HTML, which leaves the page blank until    */
+/*  JavaScript arrives; a keyframe cannot. Content is therefore visible by    */
+/*  default and only hidden by the reveal itself, once the browser has proven  */
+/*  it can drive one.                                                         */
+/* -------------------------------------------------------------------------- */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero: one short staggered entrance when the page loads. */
+  [data-hero-step] {
+    animation: rise 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Sections: progress is the scroll position itself, so the fade is tied to
+     the reader's movement rather than to a one-shot trigger. The range is in
+     pixels so it behaves identically for a short block and a very tall one. */
+  @supports (animation-timeline: view()) {
+    [data-reveal] {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0px entry 140px;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Theme switch transition                                                   */
+/*  Applied for ~360ms on change so colours cross-fade instead of snapping.    */
+/*  Never applied on first paint.                                             */
+/* -------------------------------------------------------------------------- */
+
+.theme-transitioning,
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
+  transition: background-color 0.36s ease, border-color 0.36s ease,
+    color 0.36s ease, fill 0.36s ease, stroke 0.36s ease !important;
+  transition-delay: 0s !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Reduced motion                                                            */
+/* -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
