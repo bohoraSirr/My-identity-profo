@@ -16,15 +16,15 @@
 /* -------------------------------------------------------------------------- */
 
 export const site = {
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://your-domain.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.biwashbohora.com",
   /** Formspree form ID. Empty until you create a form — see README. */
   formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "",
 };
 
 export const seo = {
-  title: "Alex Carter — Full-Stack Developer",
+  title: "Biwash Bohora — Full-Stack Developer",
   description:
-    "Portfolio of Alex Carter, a full-stack developer building fast, accessible web products. Explore my skills, academic record, experience, tech stack, projects and hobbies.",
+    "Portfolio of Biwash Bohora, a full-stack developer building fast, accessible web products. Explore my skills, academic record, experience, tech stack, projects and hobbies.",
   keywords: [
     "full-stack developer",
     "software engineer portfolio",
@@ -41,7 +41,7 @@ export const seo = {
 /* -------------------------------------------------------------------------- */
 
 export const profile = {
-  name: "Alex Carter",
+  name: "Biwash Bohora",
   /** Shown as a monogram when no avatar image is set. */
   initials: "AC",
   /** Set to "/images/avatar.jpg" after dropping your photo into public/images. */
@@ -54,28 +54,27 @@ export const profile = {
    */
   tagline:
     "I work across TypeScript, React and Postgres, and I care about the parts of a product most people never notice: focus order, empty states, and how it feels on a slow connection.",
-  location: "Your City, Country",
+  location: "Kathmandu, Nepal",
   focus: "Web apps & interfaces",
-  email: "hello@example.com",
-  phone: "+1 (555) 000-0000",
+  email: "connectwithbiwash@gmail.com",
+  phone: "+977 9848131750",
   availability: "Open to internships, freelance and full-time roles",
-  /** Drop your real PDF at public/resume.pdf, or set to null to hide the link. */
   resumeUrl: "/resume.pdf" as string | null,
   bio: [
-    "Hi, I'm Alex. I like problems that sit between design and engineering, and I care as much about the details of a hover state as about the shape of a database schema.",
+    "Hi, I'm Biwash. I like problems that sit between design and engineering, and I care as much about the details of a hover state as about the shape of a database schema.",
     "I started with plain HTML and CSS, got hooked on making interfaces feel responsive, and never stopped. These days that means TypeScript across a React and Next.js front end, with a Node and Postgres back end behind it.",
     "Outside of code you'll find me on a trail, behind a camera, or halfway through a book I swore I'd finish this month.",
   ],
   /** Quick facts shown beside the bio. */
   facts: [
-    { label: "Based in", value: "Your City, Country" },
+    { label: "Based in", value: "Kathmandu, Nepal" },
     { label: "Focus", value: "Web apps & interfaces" },
     { label: "Currently", value: "Open to new opportunities" },
   ],
   /** Three is the right number here — a fourth throws off the column rhythm. */
   stats: [
-    { label: "Years building", value: "3+" },
-    { label: "Projects shipped", value: "20+" },
+    { label: "Years building", value: "2+" },
+    { label: "Projects shipped", value: "3+" },
     { label: "Certifications", value: "5" },
   ],
 };
@@ -92,10 +91,10 @@ export type Social = {
 };
 
 export const socials: Social[] = [
-  { label: "GitHub", href: "https://github.com/your-username", icon: "code" },
+  { label: "GitHub", href: "https://github.com/bohoraSirr", icon: "code" },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/your-username",
+    href: "https://linkedin.com/in/biwash-bohora",
     icon: "briefcase",
   },
   { label: "Email", href: `mailto:${profile.email}`, icon: "mail" },
@@ -139,16 +138,6 @@ export const skillAreas: SkillArea[] = [
       "Modelling data and shaping endpoints so the front end stays simple. Schema first, then the query, then the request.",
   },
   {
-    title: "Performance",
-    description:
-      "Measuring before optimising. Bundle size, render cost and Core Web Vitals on real devices, not on a fast laptop.",
-  },
-  {
-    title: "Accessibility",
-    description:
-      "Keyboard-first and tested with a screen reader. WCAG AA as the floor rather than the ambition.",
-  },
-  {
     title: "Design systems",
     description:
       "Tokens, primitives and documentation that keep a growing interface coherent as more people work on it.",
@@ -175,35 +164,26 @@ export type EducationItem = {
 
 export const education: EducationItem[] = [
   {
-    degree: "B.Sc. Computer Science",
-    institution: "Your University",
-    period: "2021 — 2025",
-    location: "Your City, Country",
-    grade: "GPA 3.8 / 4.0",
+    degree: "B.Sc. Computer Science and Information Technology (CSIT)",
+    institution: "Amrit Campus, Tribhuvan University",
+    period: "2024 — 2028",
+    location: "Kathmandu, Nepal",
+    grade: "GPA 3.63 / 4.0",
     details: [
-      "Coursework in algorithms, databases, distributed systems and human-computer interaction.",
-      "Final year capstone: a real-time collaboration tool used by 200+ students.",
-      "Dean's List for four consecutive semesters.",
+      "Coursework in algorithms, databases, distributed systems and Artificial Inteligence.",
+      "Participated in various sports and competition.",
     ],
   },
   {
-    degree: "Higher Secondary Certificate, Science",
-    institution: "Your College",
-    period: "2019 — 2021",
-    location: "Your City, Country",
-    grade: "94%",
+    degree: "Higher Secondary Education, Science",
+    institution: "Eager Bridge Secondary School",
+    period: "2022 — 2024",
+    location: "Surkhet, Nepal",
+    grade: "3.59",
     details: [
       "Mathematics, Physics and Computer Science major.",
-      "Led the school coding club and ran an intro-to-Python workshop.",
+      "Developed a Li-fi Model & displayed in Annual Science Exhibition.",
     ],
-  },
-  {
-    degree: "Secondary School Certificate",
-    institution: "Your School",
-    period: "2017 — 2019",
-    location: "Your City, Country",
-    grade: "92%",
-    details: ["First exposure to programming, robotics and web design."],
   },
 ];
 
@@ -224,46 +204,32 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
-    role: "Software Engineer",
-    company: "Company Name",
-    period: "2025 — Present",
-    location: "Remote",
-    type: "Full-time",
+    role: "Executive Member",
+    company: "CSIT Association of Nepal",
+    period: "April, 2026 — Present",
+    location: "Hybrid",
+    type: "Part-time",
     summary:
-      "Building customer-facing web features on a Next.js and Postgres stack.",
+      "Organiziting, planning and managing the tech related workshops, conference and events to help students learn from the industry experts",
     highlights: [
-      "Shipped a redesigned onboarding flow that lifted activation by 18%.",
-      "Cut the initial page bundle by 34% by moving rendering to the server.",
-      "Introduced Playwright smoke tests that now gate every deploy.",
+      "Shipped a redesigned csitan website with new features like certificates, mocktest and academic journey.",
+      "Introduced new internal mailing system to send mails to General Members efficiently.",
     ],
     tech: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
   },
   {
-    role: "Frontend Developer Intern",
-    company: "Another Company",
-    period: "2024 — 2025",
-    location: "Hybrid",
-    type: "Internship",
-    summary:
-      "Owned the component library and helped move the team onto design tokens.",
-    highlights: [
-      "Built 40+ accessible components with documentation and tests.",
-      "Reduced visual regressions by adopting Chromatic on pull requests.",
-    ],
-    tech: ["React", "Storybook", "Vitest", "Figma"],
-  },
-  {
     role: "Freelance Web Developer",
     company: "Self-employed",
-    period: "2023 — 2024",
+    period: "2024 — 2026",
     location: "Remote",
     type: "Freelance",
-    summary: "Designed and delivered marketing sites and dashboards for clients.",
+    summary:
+      "Designed and delivered marketing sites and dashboards for clients.",
     highlights: [
-      "Delivered 8 projects with an average Lighthouse score above 95.",
+      "Delivered 4 projects with an average Lighthouse score above 95.",
       "Handled everything end to end: scoping, design, build, deploy.",
     ],
-    tech: ["Astro", "Tailwind CSS", "Vercel", "Sanity"],
+    tech: ["Tailwind CSS", "Vercel", "Framer Motion", "React"],
   },
 ];
 
@@ -295,7 +261,6 @@ export const techStack: Tech[] = [
   { name: "Git", category: "DevOps" },
   { name: "Docker", category: "DevOps" },
   { name: "Vercel", category: "DevOps" },
-  { name: "AWS", category: "Cloud" },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -387,11 +352,6 @@ export type Hobby = {
 
 export const hobbies: Hobby[] = [
   {
-    title: "Photography",
-    description:
-      "Mostly golden-hour landscapes and the occasional street scene. I shoot film when I'm feeling patient.",
-  },
-  {
     title: "Hiking",
     description:
       "Weekend trails, long ridgelines and a slowly growing list of summits.",
@@ -420,11 +380,6 @@ export const hobbies: Hobby[] = [
     title: "Fitness",
     description:
       "Lifting four days a week. It keeps the long debugging sessions bearable.",
-  },
-  {
-    title: "Travel",
-    description:
-      "New cities, new food, and a notebook full of things I want to build.",
   },
 ];
 

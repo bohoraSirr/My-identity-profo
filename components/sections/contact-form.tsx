@@ -36,11 +36,14 @@ export default function ContactForm() {
     setFeedback("");
 
     try {
-      const response = await fetch(`https://formspree.io/f/${site.formspreeId}`, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: data,
-      });
+      const response = await fetch(
+        `https://formspree.io/f/${site.formspreeId}`,
+        {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: data,
+        },
+      );
 
       if (response.ok) {
         setStatus("success");
@@ -83,7 +86,7 @@ export default function ContactForm() {
             type="text"
             required
             autoComplete="name"
-            placeholder="Jane Doe"
+            placeholder="Falano Mancha"
             className={FIELD_CLASS}
           />
         </div>
@@ -98,7 +101,7 @@ export default function ContactForm() {
             type="email"
             required
             autoComplete="email"
-            placeholder="jane@example.com"
+            placeholder="falanomancha@example.com"
             className={FIELD_CLASS}
           />
         </div>

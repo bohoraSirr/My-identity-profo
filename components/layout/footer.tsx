@@ -75,7 +75,7 @@ export default async function Footer() {
         <p>
           © {year} {profile.name}
         </p>
-        <p>Built with Next.js, Tailwind CSS and Motion</p>
+        <p></p>
       </div>
     </footer>
   );
