@@ -2,19 +2,6 @@
 
 A single-page, fully responsive personal portfolio built with **Next.js 16**, **Tailwind CSS v4** and **Motion**. It covers a profile, skills, academic record, experience, tech stack, projects, hobbies and a working contact form — with **four switchable themes**.
 
----
-
-## Design notes
-
-The page is set like a technical document rather than a deck of cards. A few rules hold it together; if you change things, these are the ones worth keeping.
-
-- **Type carries the identity.** *Fraunces* for display, *Instrument Sans* for body, *JetBrains Mono* only where the content is literally code. Monospace is not a decoration.
-- **The title lives in the margin.** Each section is a rule, a sticky section title in a left margin, and a column of content. There are no eyebrow labels above headings and no numbered markers.
-- **Hairlines and tone, not shadows and pills.** Surfaces are separated with `border-line` and `bg-surface-2`. The only things that float (the theme menu, back-to-top) get `shadow-overlay`.
-- **One moment of motion.** The hero arrives in a staged sequence and each section fades up as it enters. Both are pure CSS (the sections use scroll-driven `animation-timeline: view()`), so nothing is hidden if JavaScript is slow or absent.
-- **Colour is one family.** Four themes, same structure: *Daylight* (cool paper, petrol), *Deepwater* (graphite, aqua), *Phosphor* (terminal green, monospace), *Ember* (warm charcoal, amber).
-
----
 
 ## Features
 
@@ -51,8 +38,6 @@ npm run lint    # eslint
 ```
 
 ---
-
-## Make it yours
 
 ### 1. Content
 
