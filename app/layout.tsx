@@ -7,6 +7,8 @@ import MotionProvider from "@/components/providers/motion-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import BackToTop from "@/components/ui/back-to-top";
 import ScrollProgress from "@/components/ui/scroll-progress";
+import AmbientBackground from "@/components/ui/ambient-background";
+import ScrollBird from "@/components/ui/scroll-bird";
 import { profile, seo, site } from "@/content/site";
 import { DEFAULT_THEME, themeInitScript } from "@/lib/themes";
 
@@ -85,12 +87,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${display.variable} ${body.variable} ${mono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-canvas text-ink">
+      <body className="flex min-h-full flex-col text-ink">
         {/* Applies the saved theme before first paint to avoid a colour flash. */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
 
         <ThemeProvider>
           <MotionProvider>
+            <AmbientBackground />
+            <ScrollBird />
             <ScrollProgress />
 
             <a

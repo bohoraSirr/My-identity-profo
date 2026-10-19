@@ -121,10 +121,12 @@
     /* Clears the fixed header on anchor jumps. */
     scroll-padding-top: 5.5rem;
     -webkit-tap-highlight-color: transparent;
+    /* The canvas lives on the root so the fixed ambient layers, which sit at a
+       negative z-index, paint above it instead of being covered by <body>. */
+    background-color: var(--canvas);
   }
 
   body {
-    background-color: var(--canvas);
     color: var(--ink);
     font-family: var(--font-sans-stack);
     font-synthesis-weight: none;
@@ -239,6 +241,78 @@
       animation-timeline: view();
       animation-range: entry 0px entry 140px;
     }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Ambient background                                                        */
+/*  Each layer is twice as wide as the viewport and holds two copies of one    */
+/*  tile, so translating it by half its own width lands exactly on the next    */
+/*  copy — a seamless loop with no visible reset.                              */
+/* -------------------------------------------------------------------------- */
+
+@keyframes drift-left {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes drift-right {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.ambient-layer {
+  animation-name: drift-left;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.ambient-layer[data-direction="right"] {
+  animation-name: drift-right;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Scroll bird                                                               */
+/*  The wing beat itself is driven from scroll velocity in scroll-bird.tsx;    */
+/*  only the idle bob lives here.                                             */
+/* -------------------------------------------------------------------------- */
+
+/* A slow bob, so the bird still feels airborne when the page is still. */
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(-1.5px);
+  }
+  50% {
+    transform: translateY(1.5px);
+  }
+}
+
+.bird-bob {
+  animation: bob 3.4s ease-in-out infinite;
+}
+
+/* Where the bird rides. Below xl there is no gutter beside the headings, so it
+   tucks against the page edge; above xl it is pulled one full bird-width to the
+   left of the content edge, landing just beside the sticky section titles. */
+.bird-rail {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media (min-width: 1280px) {
+  .bird-rail {
+    transform: translateX(calc(-100% - 0.75rem));
   }
 }
 
