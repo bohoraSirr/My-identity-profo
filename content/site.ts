@@ -1,22 +1,9 @@
-/**
- * ============================================================================
- *  SITE CONTENT — the single place you edit to make this portfolio yours.
- * ============================================================================
- *
- *  Everything below is PLACEHOLDER content. Replace it with your real details.
- *  You should not need to touch any component to update your portfolio.
- *
- *  Two values are configured through environment variables instead of here:
- *    NEXT_PUBLIC_SITE_URL      e.g. https://janedoe.dev
- *    NEXT_PUBLIC_FORMSPREE_ID  e.g. xbjkqwer   (see README → Contact form)
- */
-
 /* -------------------------------------------------------------------------- */
 /*  Site + SEO                                                                */
 /* -------------------------------------------------------------------------- */
 
 export const site = {
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.biwashbohora.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.biwashbohora.com.np",
   /** Formspree form ID. Empty until you create a form — see README. */
   formspreeId: process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "",
 };
@@ -94,11 +81,10 @@ export const socials: Social[] = [
   { label: "GitHub", href: "https://github.com/bohoraSirr", icon: "code" },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/biwash-bohora",
+    href: "www.linkedin.com/in/biwash-bohora-212741316",
     icon: "briefcase",
   },
   { label: "Email", href: `mailto:${profile.email}`, icon: "mail" },
-  { label: "Website", href: site.url, icon: "globe" },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -280,14 +266,14 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Project Atlas",
-    summary: "Real-time collaboration workspace",
+    title: "Onestop E-commerce",
+    summary: "Online buying and selling platform for everyone",
     description:
-      "Multi-user notes with live cursors, offline support and conflict-free syncing over WebSockets. Handles 200 concurrent sessions on a single node.",
-    tags: ["React", "Node.js", "WebSockets", "PostgreSQL"],
+      "User can login though google id, explore various genre of products. Admin panel and dashboard service for shop owners.",
+    tags: ["React", "Node.js", "MongoDB", "Express.js"],
     featured: true,
-    liveUrl: "https://example.com",
-    repoUrl: "https://github.com/your-username/atlas",
+    liveUrl: "https://e-commerce-51rj.vercel.app/",
+    repoUrl: "https://github.com/bohoraSirr/E-commerce",
   },
   {
     title: "Portfolio Website",
@@ -300,44 +286,15 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/your-username/portfolio",
   },
   {
-    title: "Shelf",
-    summary: "Personal reading tracker",
+    title: "Bakery Website",
+    summary: "Modern bakery and pastery website",
     description:
-      "Track books, set yearly goals and visualise reading streaks. Includes an import flow for Goodreads exports.",
-    tags: ["Next.js", "Prisma", "PostgreSQL"],
+      "Display the popular and famous from the menu. Customers can order and place their address for home delivery",
+    tags: ["React.js", "MongoDB", "Framer Motion"],
     featured: false,
-    liveUrl: "https://example.com",
-    repoUrl: "https://github.com/your-username/shelf",
-  },
-  {
-    title: "Trailfinder",
-    summary: "Hiking route finder",
-    description:
-      "Search nearby trails, view elevation profiles and download offline maps. Built as a progressive web app with an installable shell.",
-    tags: ["React", "PWA", "Mapbox"],
-    featured: false,
-    liveUrl: "https://example.com",
-    repoUrl: null,
-  },
-  {
-    title: "Pixeldrop",
-    summary: "Image optimisation CLI",
-    description:
-      "A zero-config CLI that batch-compresses images into AVIF and WebP, with a dry-run report of exactly how many kilobytes you saved.",
-    tags: ["Node.js", "CLI", "Sharp"],
-    featured: false,
-    liveUrl: null,
-    repoUrl: "https://github.com/your-username/pixeldrop",
-  },
-  {
-    title: "Campus Compass",
-    summary: "Course planning assistant",
-    description:
-      "Helps students plan semesters by modelling prerequisites as a graph and flagging conflicts before registration opens.",
-    tags: ["Python", "Flask", "SQLite"],
-    featured: false,
-    liveUrl: null,
-    repoUrl: "https://github.com/your-username/campus-compass",
+    liveUrl:
+      "https://vercel.com/biwashs-projects-b41fe591/bakery-mn8v/CbvaWguQwHh4ZQEBBKCxv5yphUwS",
+    repoUrl: "https://github.com/bohoraSirr/Bakery",
   },
 ];
 

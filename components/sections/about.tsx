@@ -34,11 +34,7 @@ export default function About() {
             {profile.facts.map((fact, index) => (
               <div
                 key={fact.label}
-                className={
-                  index === 0
-                    ? ""
-                    : "mt-6 border-t border-line pt-6"
-                }
+                className={index === 0 ? "" : "mt-6 border-t border-line pt-6"}
               >
                 <dt className="text-xs text-muted">{fact.label}</dt>
                 <dd className="mt-1.5 text-[0.9375rem]">{fact.value}</dd>

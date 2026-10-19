@@ -12,6 +12,8 @@ The page is set like a technical document rather than a deck of cards. A few rul
 - **The title lives in the margin.** Each section is a rule, a sticky section title in a left margin, and a column of content. There are no eyebrow labels above headings and no numbered markers.
 - **Hairlines and tone, not shadows and pills.** Surfaces are separated with `border-line` and `bg-surface-2`. The only things that float (the theme menu, back-to-top) get `shadow-overlay`.
 - **One moment of motion.** The hero arrives in a staged sequence and each section fades up as it enters. Both are pure CSS (the sections use scroll-driven `animation-timeline: view()`), so nothing is hidden if JavaScript is slow or absent.
+- **The background is a survey, not a blur.** Three layers of contour lines drift at different speeds behind the page, drawn to match the document motif. Pure CSS, seamless, and it stops for reduced motion.
+- **A bird keeps you company.** A side-profile bird rides the left gutter beside the section titles, descending as you scroll. It beats its wings in proportion to how fast you scroll and settles back to a glide when you stop.
 - **Colour is one family.** Four themes, same structure: *Daylight* (cool paper, petrol), *Deepwater* (graphite, aqua), *Phosphor* (terminal green, monospace), *Ember* (warm charcoal, amber).
 
 ---
@@ -26,6 +28,7 @@ The page is set like a technical document rather than a deck of cards. A few rul
   | **Phosphor** | Terminal green, everything in monospace |
   | **Ember** | Warm charcoal, amber accent |
 - **Scroll-driven animation** — a staged hero entrance and one fade per section, both pure CSS, plus a scroll-progress hairline and active-section navbar highlighting driven by `motion`.
+- **Ambient background** — slowly drifting contour-line layers behind the content, plus a scroll-bound bird that beats its wings with your scrolling speed.
 - **Fully responsive** — mobile-first, tested from 320px to widescreen; animated mobile nav drawer.
 - **Contact form** wired to [Formspree](https://formspree.io) with validation, loading, success and error states, plus a copy-to-clipboard email button.
 - **Accessible** — semantic landmarks, skip link, visible focus rings, labelled controls, `aria-live` form status, and full `prefers-reduced-motion` support.
@@ -128,7 +131,7 @@ components/
                     tech-stack, projects, hobbies, contact, contact-form
   ui/               reveal, section, timeline, project-row, theme-switcher,
                     scroll-progress, back-to-top, monogram, button-link,
-                    copy-email
+                    copy-email, ambient-background, scroll-bird
 content/
   site.ts           👈 ALL of your content lives here
 lib/
